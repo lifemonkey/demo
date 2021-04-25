@@ -6,7 +6,7 @@ import javax.persistence.*;
 import javax.xml.bind.annotation.*;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @XmlRootElement(name = "metadata")
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -31,7 +31,7 @@ public class Metadata implements Serializable {
     private Link link;
     @XmlElement(name = "time")
     @XmlJavaTypeAdapter(value = LocalDateAdapter.class)
-    private LocalDate time;
+    private LocalDateTime time;
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "gps_id")
@@ -40,7 +40,7 @@ public class Metadata implements Serializable {
     public Metadata() {
     }
 
-    public Metadata(String name, String desc, String author, Link link, LocalDate time) {
+    public Metadata(String name, String desc, String author, Link link, LocalDateTime time) {
         this.name = name;
         this.desc = desc;
         this.author = author;
@@ -72,7 +72,7 @@ public class Metadata implements Serializable {
         return this;
     }
 
-    public Metadata withTime(LocalDate localDate) {
+    public Metadata withTime(LocalDateTime time) {
         this.time = time;
         return this;
     }
@@ -125,11 +125,11 @@ public class Metadata implements Serializable {
         this.link = link;
     }
 
-    public LocalDate getTime() {
+    public LocalDateTime getTime() {
         return time;
     }
 
-    public void setTime(LocalDate time) {
+    public void setTime(LocalDateTime time) {
         this.time = time;
     }
 

@@ -41,7 +41,7 @@ public class GPSMapperImpl implements GPSMapper {
                 .withAuthor(metadata.getAuthor())
                 .withLink(metadata.getLink() != null ? metadata.getLink().getHref() : null)
                 .withLinkTxt(metadata.getLink() != null ? metadata.getLink().getText() : null)
-                .withTime(metadata.getTime());
+                .withTime(metadata.getTime().toString());
     }
 
     private List<WaypointDto> buildWaypoints(List<Waypoint> waypoints) {
@@ -74,7 +74,7 @@ public class GPSMapperImpl implements GPSMapper {
                 .withElement(trackpoint.getElement())
                 .withLatitude(trackpoint.getLatitude())
                 .withLongitude(trackpoint.getLongitude())
-                .withTime(trackpoint.getTime());
+                .withTime(trackpoint.getTime().toString());
     }
 
     @Override

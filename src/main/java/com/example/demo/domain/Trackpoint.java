@@ -5,7 +5,7 @@ import com.example.demo.helpers.LocalDateAdapter;
 import javax.persistence.*;
 import javax.xml.bind.annotation.*;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @XmlRootElement(name = "trkpt")
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -26,7 +26,7 @@ public class Trackpoint {
     private String element;
     @XmlElement(name = "time")
     @XmlJavaTypeAdapter(value = LocalDateAdapter.class)
-    private LocalDate time;
+    private LocalDateTime time;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "track_segment_id")
@@ -35,7 +35,7 @@ public class Trackpoint {
     public Trackpoint() {
     }
 
-    public Trackpoint(Double latitude, Double longitude, String element, LocalDate time) {
+    public Trackpoint(Double latitude, Double longitude, String element, LocalDateTime time) {
         this.latitude = latitude;
         this.longitude = longitude;
         this.element = element;
@@ -62,7 +62,7 @@ public class Trackpoint {
         return this;
     }
 
-    public Trackpoint withTime(LocalDate time) {
+    public Trackpoint withTime(LocalDateTime time) {
         this.time = time;
         return this;
     }
@@ -99,11 +99,11 @@ public class Trackpoint {
         this.element = element;
     }
 
-    public LocalDate getTime() {
+    public LocalDateTime getTime() {
         return time;
     }
 
-    public void setTime(LocalDate time) {
+    public void setTime(LocalDateTime time) {
         this.time = time;
     }
 

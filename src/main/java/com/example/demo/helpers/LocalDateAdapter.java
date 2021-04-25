@@ -1,15 +1,17 @@
 package com.example.demo.helpers;
 
 import javax.xml.bind.annotation.adapters.XmlAdapter;
-import java.time.LocalDate;
+import java.time.*;
 
-public class LocalDateAdapter extends XmlAdapter<String, LocalDate> {
+public class LocalDateAdapter extends XmlAdapter<String, LocalDateTime> {
 
-    public LocalDate unmarshal(String v) throws Exception {
-        return LocalDate.parse(v);
+    public LocalDateTime unmarshal(String v) throws Exception {
+        Instant instant = Instant.parse(v);
+        return LocalDateTime.ofInstant(instant, ZoneId.of(ZoneOffset.UTC.getId()));
     }
 
-    public String marshal(LocalDate v) throws Exception {
+    @Override
+    public String marshal(LocalDateTime v) throws Exception {
         return v.toString();
     }
 }

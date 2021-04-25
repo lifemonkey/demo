@@ -1,7 +1,6 @@
 package com.example.demo.dto;
 
 import java.io.Serializable;
-import java.time.LocalDate;
 
 public class MetadataDto implements Serializable {
 
@@ -13,12 +12,12 @@ public class MetadataDto implements Serializable {
     private String author;
     private String link;
     private String linkTxt;
-    private LocalDate time;
+    private String time;
 
     public MetadataDto() {
     }
 
-    public MetadataDto(Long id, String name, String desc, String author, String link, String linkTxt, LocalDate time) {
+    public MetadataDto(Long id, String name, String desc, String author, String link, String linkTxt, String time) {
         this.id = id;
         this.name = name;
         this.desc = desc;
@@ -58,7 +57,7 @@ public class MetadataDto implements Serializable {
         return this;
     }
 
-    public MetadataDto withTime(LocalDate time) {
+    public MetadataDto withTime(String time) {
         this.time = time;
         return this;
     }
@@ -111,11 +110,11 @@ public class MetadataDto implements Serializable {
         this.linkTxt = linkTxt;
     }
 
-    public LocalDate getTime() {
+    public String getTime() {
         return time;
     }
 
-    public void setTime(LocalDate time) {
+    public void setTime(String time) {
         this.time = time;
     }
 

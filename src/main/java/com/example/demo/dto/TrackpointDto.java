@@ -1,7 +1,6 @@
 package com.example.demo.dto;
 
 import java.io.Serializable;
-import java.time.LocalDate;
 
 public class TrackpointDto implements Serializable {
 
@@ -11,12 +10,12 @@ public class TrackpointDto implements Serializable {
     private Double latitude;
     private Double longitude;
     private String element;
-    private LocalDate time;
+    private String time;
 
     public TrackpointDto() {
     }
 
-    public TrackpointDto(Long id, Double latitude, Double longitude, String element, LocalDate time) {
+    public TrackpointDto(Long id, Double latitude, Double longitude, String element, String time) {
         this.id = id;
         this.latitude = latitude;
         this.longitude = longitude;
@@ -44,7 +43,7 @@ public class TrackpointDto implements Serializable {
         return this;
     }
 
-    public TrackpointDto withTime(LocalDate time) {
+    public TrackpointDto withTime(String time) {
         this.time = time;
         return this;
     }
@@ -81,11 +80,11 @@ public class TrackpointDto implements Serializable {
         this.element = element;
     }
 
-    public LocalDate getTime() {
+    public String getTime() {
         return time;
     }
 
-    public void setTime(LocalDate time) {
+    public void setTime(String time) {
         this.time = time;
     }
 

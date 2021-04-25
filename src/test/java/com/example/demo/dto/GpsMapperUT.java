@@ -38,6 +38,7 @@ public class GpsMapperUT {
         Assert.assertEquals("Metadata name", gpsDto.getMetadata().getName());
         Assert.assertEquals("Test Href", gpsDto.getMetadata().getLink());
         Assert.assertEquals("Test text", gpsDto.getMetadata().getLinkTxt());
+        Assert.assertEquals("2021-04-25T22:22:22.222", gpsDto.getMetadata().getTime());
         // verify trackpoints
         Assert.assertEquals(2, gpsDto.getTrackpoints().size());
         Assert.assertTrue(gpsDto.getTrackpoints().get(0).getLongitude().doubleValue() == 11.11);

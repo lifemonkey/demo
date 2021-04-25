@@ -2,14 +2,14 @@ package com.example.demo;
 
 import com.example.demo.domain.*;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 public class DataBuilder {
 
     public static Gps buildGps() {
-        LocalDate localDate = LocalDate.now();
+        LocalDateTime localDate = LocalDateTime.parse("2021-04-25T22:22:22.222");
 
         // init link
         Link link = new Link().withHref("Test Href").withText("Test text");

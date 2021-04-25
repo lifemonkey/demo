@@ -22,12 +22,10 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
+
 public class GPSTrackingServiceUT {
 
     final String filePath = System.getProperty("user.dir") + "/sample/sample.gpx";
