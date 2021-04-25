@@ -13,7 +13,7 @@ public class Waypoint implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    Long id;
+    private Long id;
 
     @XmlAttribute(name = "lat")
     private Double latitude;
@@ -36,6 +36,31 @@ public class Waypoint implements Serializable {
         this.longitude = longitude;
         this.name = name;
         this.symbol = symbol;
+    }
+
+    public Waypoint withId(Long id) {
+        this.id = id;
+        return this;
+    }
+
+    public Waypoint withLatitude(Double latitude) {
+        this.latitude = latitude;
+        return this;
+    }
+
+    public Waypoint withLongitude(Double longitude) {
+        this.longitude = longitude;
+        return this;
+    }
+
+    public Waypoint withName(String name) {
+        this.name = name;
+        return this;
+    }
+
+    public Waypoint withSymbol(String symbol) {
+        this.symbol = symbol;
+        return this;
     }
 
     public Long getId() {

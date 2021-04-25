@@ -13,7 +13,8 @@ public class TrackpointDto implements Serializable {
     private String element;
     private LocalDate time;
 
-    public TrackpointDto() {}
+    public TrackpointDto() {
+    }
 
     public TrackpointDto(Long id, Double latitude, Double longitude, String element, LocalDate time) {
         this.id = id;
@@ -21,6 +22,31 @@ public class TrackpointDto implements Serializable {
         this.longitude = longitude;
         this.element = element;
         this.time = time;
+    }
+
+    public TrackpointDto withId(Long id) {
+        this.id = id;
+        return this;
+    }
+
+    public TrackpointDto withLatitude(Double latitude) {
+        this.latitude = latitude;
+        return this;
+    }
+
+    public TrackpointDto withLongitude(Double longitude) {
+        this.longitude = longitude;
+        return this;
+    }
+
+    public TrackpointDto withElement(String element) {
+        this.element = element;
+        return this;
+    }
+
+    public TrackpointDto withTime(LocalDate time) {
+        this.time = time;
+        return this;
     }
 
     public Long getId() {

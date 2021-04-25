@@ -17,7 +17,7 @@ public class TrackSegment implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    Long id;
+    private Long id;
 
     @XmlElement(name = "trkpt")
     @OneToMany(mappedBy = "trackSegment", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -32,6 +32,16 @@ public class TrackSegment implements Serializable {
 
     public TrackSegment(List<Trackpoint> trackpoints) {
         this.trackpoints = trackpoints;
+    }
+
+    public TrackSegment withId(Long id) {
+        this.id = id;
+        return this;
+    }
+
+    public TrackSegment withTrackpoints(List<Trackpoint> trackpoints) {
+        this.trackpoints = trackpoints;
+        return this;
     }
 
     public Long getId() {

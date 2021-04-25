@@ -1,6 +1,8 @@
 package com.example.demo.dto;
 
-public class WaypointDto {
+import java.io.Serializable;
+
+public class WaypointDto implements Serializable {
 
     static final long serialVersionUID = 1L;
 
@@ -10,7 +12,8 @@ public class WaypointDto {
     private String name;
     private String symbol;
 
-    public WaypointDto() {}
+    public WaypointDto() {
+    }
 
     public WaypointDto(Long id, Double latitude, Double longitude, String name, String symbol) {
         this.id = id;
@@ -18,6 +21,31 @@ public class WaypointDto {
         this.longitude = longitude;
         this.name = name;
         this.symbol = symbol;
+    }
+
+    public WaypointDto withId(Long id) {
+        this.id = id;
+        return this;
+    }
+
+    public WaypointDto withLatitude(Double latitude) {
+        this.latitude = latitude;
+        return this;
+    }
+
+    public WaypointDto withLongitude(Double longitude) {
+        this.longitude = longitude;
+        return this;
+    }
+
+    public WaypointDto withName(String name) {
+        this.name = name;
+        return this;
+    }
+
+    public WaypointDto withSymbol(String symbol) {
+        this.symbol = symbol;
+        return this;
     }
 
     public Long getId() {

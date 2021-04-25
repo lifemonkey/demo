@@ -26,6 +26,36 @@ public class GPSDto implements Serializable {
         this.trackpoints = trackpoints;
     }
 
+    public GPSDto withId(Long id) {
+        this.id = id;
+        return this;
+    }
+
+    public GPSDto withVersion(String version) {
+        this.version = version;
+        return this;
+    }
+
+    public GPSDto withCreator(String creator) {
+        this.creator = creator;
+        return this;
+    }
+
+    public GPSDto withMetadata(MetadataDto metadata) {
+        this.metadata = metadata;
+        return this;
+    }
+
+    public GPSDto withWaypoints(List<WaypointDto> waypoints) {
+        this.waypoints = waypoints;
+        return this;
+    }
+
+    public GPSDto withTrackpoints(List<TrackpointDto> trackpoints) {
+        this.trackpoints = trackpoints;
+        return this;
+    }
+
     public Long getId() {
         return id;
     }

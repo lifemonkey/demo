@@ -17,7 +17,7 @@ public class Metadata implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    Long id;
+    private Long id;
 
     @XmlElement(name = "name")
     private String name;
@@ -46,6 +46,35 @@ public class Metadata implements Serializable {
         this.author = author;
         this.link = link;
         this.time = time;
+    }
+
+    public Metadata withId(Long id) {
+        this.id = id;
+        return this;
+    }
+
+    public Metadata withName(String name) {
+        this.name = name;
+        return this;
+    }
+
+    public Metadata withDesc(String desc) {
+        this.desc = desc;
+        return this;
+    }
+    public Metadata withAuthor(String author) {
+        this.author = author;
+        return this;
+    }
+
+    public Metadata withLink(Link link) {
+        this.link = link;
+        return this;
+    }
+
+    public Metadata withTime(LocalDate localDate) {
+        this.time = time;
+        return this;
     }
 
     public Long getId() {

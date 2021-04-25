@@ -8,7 +8,6 @@ import com.example.demo.dto.WaypointDto;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -21,13 +20,13 @@ public class GPSMapperImpl implements GPSMapper {
             return null;
         }
 
-        GPSDto gpsDto = new GPSDto();
-        gpsDto.setId(gps.getId());
-        gpsDto.setCreator(gps.getCreator());
-        gpsDto.setMetadata(buildMetadata(gps.getMetadata()));
-        gpsDto.setWaypoints(buildWaypoints(gps.getWaypoints()));
-        gpsDto.setTrackpoints(buildTrackpoints(gps.getTrackSegments()));
-        return gpsDto;
+        return new GPSDto()
+                .withId(gps.getId())
+                .withCreator(gps.getCreator())
+                .withVersion(gps.getVersion())
+                .withMetadata(buildMetadata(gps.getMetadata()))
+                .withWaypoints(buildWaypoints(gps.getWaypoints()))
+                .withTrackpoints(buildTrackpoints(gps.getTrackSegments()));
     }
 
     private MetadataDto buildMetadata(Metadata metadata) {
@@ -35,18 +34,14 @@ public class GPSMapperImpl implements GPSMapper {
             return null;
         }
 
-        MetadataDto metadataDto = new MetadataDto();
-        metadataDto.setId(metadata.getId());
-        metadataDto.setName(metadata.getName());
-        metadataDto.setDesc(metadata.getDesc());
-        metadataDto.setAuthor(metadata.getAuthor());
-        if (metadata.getLink() != null) {
-            metadataDto.setLink(metadata.getLink().getHref());
-            metadataDto.setLinkTxt(metadata.getLink().getText());
-        }
-        metadataDto.setTime(metadata.getTime());
-
-        return metadataDto;
+        return new MetadataDto()
+                .withId(metadata.getId())
+                .withName(metadata.getName())
+                .withDesc(metadata.getDesc())
+                .withAuthor(metadata.getAuthor())
+                .withLink(metadata.getLink() != null ? metadata.getLink().getHref() : null)
+                .withLinkTxt(metadata.getLink() != null ? metadata.getLink().getText() : null)
+                .withTime(metadata.getTime());
     }
 
     private List<WaypointDto> buildWaypoints(List<Waypoint> waypoints) {
@@ -58,14 +53,12 @@ public class GPSMapperImpl implements GPSMapper {
             return null;
         }
 
-        WaypointDto waypointDto = new WaypointDto();
-        waypointDto.setId(waypoint.getId());
-        waypointDto.setLatitude(waypoint.getLatitude());
-        waypointDto.setLongitude(waypoint.getLongitude());
-        waypointDto.setName(waypoint.getName());
-        waypointDto.setSymbol(waypoint.getSymbol());
-
-        return waypointDto;
+        return new WaypointDto()
+                .withId(waypoint.getId())
+                .withLatitude(waypoint.getLatitude())
+                .withLongitude(waypoint.getLongitude())
+                .withName(waypoint.getName())
+                .withSymbol(waypoint.getSymbol());
     }
 
     private List<TrackpointDto> buildTrackpoints(List<TrackSegment> trackSegments) {
@@ -76,14 +69,12 @@ public class GPSMapperImpl implements GPSMapper {
     }
 
     private TrackpointDto buildTrackpoint(Trackpoint trackpoint) {
-        TrackpointDto trackpointDto = new TrackpointDto();
-        trackpointDto.setId(trackpoint.getId());
-        trackpointDto.setElement(trackpoint.getElement());
-        trackpointDto.setLatitude(trackpoint.getLatitude());
-        trackpointDto.setLongitude(trackpoint.getLongitude());
-        trackpointDto.setTime(trackpoint.getTime());
-
-        return trackpointDto;
+        return new TrackpointDto()
+                .withId(trackpoint.getId())
+                .withElement(trackpoint.getElement())
+                .withLatitude(trackpoint.getLatitude())
+                .withLongitude(trackpoint.getLongitude())
+                .withTime(trackpoint.getTime());
     }
 
     @Override

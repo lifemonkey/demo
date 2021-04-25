@@ -13,7 +13,7 @@ public class Link implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    Long id;
+    private Long id;
 
     @XmlAttribute(name = "href")
     private String href;
@@ -31,6 +31,16 @@ public class Link implements Serializable {
         this.href = href;
         this.text = text;
         this.metadata = metadata;
+    }
+
+    public Link withHref(String href) {
+        this.href = href;
+        return this;
+    }
+
+    public Link withText(String text) {
+        this.text = text;
+        return this;
     }
 
     public Long getId() {

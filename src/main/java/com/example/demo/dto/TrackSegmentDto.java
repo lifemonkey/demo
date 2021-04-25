@@ -5,7 +5,7 @@ import com.example.demo.domain.Trackpoint;
 import java.io.Serializable;
 import java.util.List;
 
-public class TrackSegmentDto implements Serializable  {
+public class TrackSegmentDto implements Serializable {
 
     static final long serialVersionUID = 1L;
 
@@ -18,6 +18,16 @@ public class TrackSegmentDto implements Serializable  {
     public TrackSegmentDto(Long id, List<Trackpoint> trackpoints) {
         this.id = id;
         this.trackpoints = trackpoints;
+    }
+
+    public TrackSegmentDto withId(Long id) {
+        this.id = id;
+        return this;
+    }
+
+    public TrackSegmentDto withTrackpoints(List<Trackpoint> trackpoints) {
+        this.trackpoints = trackpoints;
+        return this;
     }
 
     public Long getId() {

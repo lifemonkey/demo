@@ -16,7 +16,7 @@ public class Trackpoint {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    Long id;
+    private Long id;
 
     @XmlAttribute(name = "lat")
     private Double latitude;
@@ -40,6 +40,31 @@ public class Trackpoint {
         this.longitude = longitude;
         this.element = element;
         this.time = time;
+    }
+
+    public Trackpoint withId(Long id) {
+        this.id = id;
+        return this;
+    }
+
+    public Trackpoint withLatitude(Double latitude) {
+        this.latitude = latitude;
+        return this;
+    }
+
+    public Trackpoint withLongitude(Double longitude) {
+        this.longitude = longitude;
+        return this;
+    }
+
+    public Trackpoint withElement(String element) {
+        this.element = element;
+        return this;
+    }
+
+    public Trackpoint withTime(LocalDate time) {
+        this.time = time;
+        return this;
     }
 
     public Long getId() {

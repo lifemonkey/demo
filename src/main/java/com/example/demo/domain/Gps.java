@@ -14,7 +14,7 @@ public class Gps implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    Long id;
+    private Long id;
 
     @XmlAttribute(name = "version")
     private String version;
@@ -43,6 +43,35 @@ public class Gps implements Serializable {
         this.metadata = metadata;
         this.waypoints = waypoints;
         this.trackSegments = trackSegments;
+    }
+
+    public Gps withId(Long id) {
+        this.id = id;
+        return this;
+    }
+    public Gps withVersion(String version) {
+        this.version = version;
+        return this;
+    }
+
+    public Gps withCreator(String creator) {
+        this.creator = creator;
+        return this;
+    }
+
+    public Gps withMetadata(Metadata metadata) {
+        this.metadata = metadata;
+        return this;
+    }
+
+    public Gps withWaypoints(List<Waypoint> waypoints) {
+        this.waypoints = waypoints;
+        return this;
+    }
+
+    public Gps withTrackSegments(List<TrackSegment> trackSegments) {
+        this.trackSegments = trackSegments;
+        return this;
     }
 
     public void addWaypoint(Waypoint waypoint) {

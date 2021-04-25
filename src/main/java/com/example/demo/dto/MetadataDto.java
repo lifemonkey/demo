@@ -15,7 +15,8 @@ public class MetadataDto implements Serializable {
     private String linkTxt;
     private LocalDate time;
 
-    public MetadataDto() {}
+    public MetadataDto() {
+    }
 
     public MetadataDto(Long id, String name, String desc, String author, String link, String linkTxt, LocalDate time) {
         this.id = id;
@@ -25,6 +26,41 @@ public class MetadataDto implements Serializable {
         this.link = link;
         this.linkTxt = linkTxt;
         this.time = time;
+    }
+
+    public MetadataDto withId(Long id) {
+        this.id = id;
+        return this;
+    }
+
+    public MetadataDto withName(String name) {
+        this.name = name;
+        return this;
+    }
+
+    public MetadataDto withDesc(String desc) {
+        this.desc = desc;
+        return this;
+    }
+
+    public MetadataDto withAuthor(String author) {
+        this.author = author;
+        return this;
+    }
+
+    public MetadataDto withLink(String link) {
+        this.link = link;
+        return this;
+    }
+
+    public MetadataDto withLinkTxt(String linkTxt) {
+        this.linkTxt = linkTxt;
+        return this;
+    }
+
+    public MetadataDto withTime(LocalDate time) {
+        this.time = time;
+        return this;
     }
 
     public Long getId() {
